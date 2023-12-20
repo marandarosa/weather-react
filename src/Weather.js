@@ -28,7 +28,7 @@ export default function Weather(props) {
       <li>Description: {description}</li>
       <li>Humidity: {humidity}%</li>
       <li>Wind: {Math.round(windSpeed)}mph</li>
-      <img src={icon} />
+      <img src={icon} alt={description} />
     </ul>
   );
 }
