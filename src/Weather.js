@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import FormattedDate from "./FormattedDate";
 
 export default function Weather(props) {
   let [city, setCity] = useState(props.defaultCity);
@@ -9,12 +10,15 @@ export default function Weather(props) {
     setWeatherData({
       city: response.data.name,
       temp: response.data.main.temp,
+      date: new Date(response.data.dt * 1000),
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
       windSpeed: response.data.wind.speed,
       icon: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
       ready: true,
     });
+
+    console.log(response.data);
   }
 
   function submitCity(event) {
@@ -34,27 +38,41 @@ export default function Weather(props) {
   if (weatherData.ready) {
     return (
       <div className="Weather">
-        <h1>Weather App</h1>
         <form onSubmit={submitCity}>
           <input
             type="search"
             placeholder="Enter city name.."
-            autofocus="on"
+            autoFocus="on"
             onChange={changeCity}
           />
           <input type="submit" value="Search" />
         </form>
         <br />
-        <ul>
-          <li>
-            <strong>{weatherData.city}</strong>
-          </li>
-          <li>Temperature: {Math.round(weatherData.temp)}°F</li>
-          <li>Description: {weatherData.description}</li>
-          <li>Humidity: {weatherData.humidity}%</li>
-          <li>Wind: {Math.round(weatherData.windSpeed)}mph</li>
-          <img src={weatherData.icon} alt={weatherData.description} />
-        </ul>
+        <div className="container">
+          <div className="row">
+            <div className="col">
+              <ul>
+                <li>
+                  <h1>{weatherData.city}</h1>
+                </li>
+                <li>
+                  <FormattedDate date={weatherData.date} />
+                </li>
+                <li>{weatherData.description}</li>
+                <li>
+                  <img src={weatherData.icon} alt={weatherData.description} />
+                  <h1>{Math.round(weatherData.temp)}°F</h1>
+                </li>
+              </ul>
+            </div>
+            <div className="col">
+              <ul>
+                <li>Humidity: {weatherData.humidity}%</li>
+                <li>Wind: {Math.round(weatherData.windSpeed)}mph</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     );
   } else {
