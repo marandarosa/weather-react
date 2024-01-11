@@ -1,6 +1,14 @@
-ul li {
-  font-family: sans-serif;
-  text-align: center;
-  text-transform: capitalize;
-  list-style-type: none;
+.Weather input {
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: 1px solid gray;
+  margin: 5px 1px;
+}
+
+.Weather input.search-bar {
+  width: 75%;
+}
+
+.Weather input.search-button {
+  width: 24%;
 }

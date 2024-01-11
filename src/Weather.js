@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-import FormattedDate from "./FormattedDate";
+import WeatherInfo from "./WeatherInfo";
+import "./Weather.css";
 
 export default function Weather(props) {
   let [city, setCity] = useState(props.defaultCity);
@@ -44,35 +45,12 @@ export default function Weather(props) {
             placeholder="Enter city name.."
             autoFocus="on"
             onChange={changeCity}
+            className="search-bar"
           />
-          <input type="submit" value="Search" />
+          <input type="submit" value="Search" className="search-button" />
         </form>
         <br />
-        <div className="container">
-          <div className="row">
-            <div className="col">
-              <ul>
-                <li>
-                  <h1>{weatherData.city}</h1>
-                </li>
-                <li>
-                  <FormattedDate date={weatherData.date} />
-                </li>
-                <li>{weatherData.description}</li>
-                <li>
-                  <img src={weatherData.icon} alt={weatherData.description} />
-                  <h1>{Math.round(weatherData.temp)}°F</h1>
-                </li>
-              </ul>
-            </div>
-            <div className="col">
-              <ul>
-                <li>Humidity: {weatherData.humidity}%</li>
-                <li>Wind: {Math.round(weatherData.windSpeed)}mph</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        <WeatherInfo data={weatherData} />
       </div>
     );
   } else {

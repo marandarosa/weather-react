@@ -1,18 +1,7 @@
-body {
-  font-family: sans-serif;
-  text-align: center;
-}
-
-ul li {
-  font-family: sans-serif;
-  text-align: center;
-  text-transform: capitalize;
-  list-style-type: none;
-}
-
 .App {
   border: 1px solid gray;
   border-radius: 15px;
   max-width: 450px;
   margin: 0 auto;
+  margin-top: 50px;
 }

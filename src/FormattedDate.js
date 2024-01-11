@@ -19,5 +19,9 @@ export default function FormattedDate(props) {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-  return `${today} ${hours}:${minutes}`;
+  return (
+    <div className="FormattedDate">
+      {today} {hours}:{minutes}
+    </div>
+  );
 }
