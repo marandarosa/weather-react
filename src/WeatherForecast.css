@@ -1,0 +1,7 @@
+.WeatherForecast .col-sm-2 {
+  padding: 10px 0px;
+}
+
+.WeatherForecast .col-sm-2 .icon {
+  scale: 0.5;
+}

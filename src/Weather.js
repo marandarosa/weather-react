@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import WeatherInfo from "./WeatherInfo";
+import WeatherForecast from "./WeatherForecast";
 import "./Weather.css";
 
 export default function Weather(props) {
@@ -15,11 +16,9 @@ export default function Weather(props) {
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
       windSpeed: response.data.wind.speed,
-      icon: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      icon: response.data.weather[0].icon,
       ready: true,
     });
-
-    console.log(response.data);
   }
 
   function submitCity(event) {
@@ -51,6 +50,11 @@ export default function Weather(props) {
         </form>
         <br />
         <WeatherInfo data={weatherData} />
+        <br />
+        <div className="text-center">
+          <strong>6-Day Forecast</strong>
+        </div>
+        <WeatherForecast />
       </div>
     );
   } else {
