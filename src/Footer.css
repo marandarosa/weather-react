@@ -1,5 +1,8 @@
 footer {
-  color: gray;
   font-size: 12px;
   text-align: center;
+}
+
+footer a {
+  color: purple;
 }

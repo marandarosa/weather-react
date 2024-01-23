@@ -5,3 +5,7 @@
 .WeatherForecast .col-sm-2 .icon {
   scale: 0.5;
 }
+
+.WeatherForecast {
+  color: white;
+}

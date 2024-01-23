@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 
 import App from "./App";
 import Footer from "./Footer";
+import "./index.css";
 import "bootstrap/dist/css/bootstrap.css";
 
 const rootElement = document.getElementById("root");
