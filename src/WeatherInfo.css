@@ -18,11 +18,12 @@ h3 {
 }
 
 .WeatherInfo h2 {
-  font-size: 48px;
+  font-size: 54px;
+  margin-left: 10px;
 }
 
 .WeatherInfo h3 {
   font-size: 18px;
   position: relative;
-  bottom: 20px;
+  bottom: 15px;
 }

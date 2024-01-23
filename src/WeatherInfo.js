@@ -15,7 +15,9 @@ export default function WeatherInfo(props) {
           <ul>
             <li>
               <WeatherIcon code={props.data.icon} />
-              <TempConversion fahrenheit={props.data.temp} />
+              <h3>
+                <TempConversion fahrenheit={props.data.temp} />
+              </h3>
             </li>
           </ul>
         </div>
