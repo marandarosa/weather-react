@@ -32,7 +32,8 @@ export default function Weather(props) {
   }
 
   function search() {
-    let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=6643c7326a4c2a38838264a28531d97e&units=imperial`;
+    let apiKey = `017d56650cd168d68067850318775d43`;
+    let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
     axios.get(weatherUrl).then(displayWeather);
   }
 
